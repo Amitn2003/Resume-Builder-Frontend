@@ -4,6 +4,7 @@ import './App.css'
 function App() {
   // const [name, setName] = useState("")
   const [data, setData] = useState(null);
+  const [edu, setEdu] = useState(false);
   // const getDataFromApi = async () => {
   //   try {
   //     const response = await fetch('http://localhost:8000/generate');
@@ -53,20 +54,26 @@ function App() {
 
 
 
-  const redirectToWebsite = (name, phone, address, email, bio, techSkills, softSkills, lang, hobbies) => {
+  const redirectToWebsite = (name, phone, address, district, pincode,  email, bio, obj,  techSkills, softSkills, lang, hobbies, seacom , edu , clgStart, clgEnd) => {
     // Construct the URL with query parameters
 
     const queryParams = new URLSearchParams({
       name: name,
-      param2: 'value2',
       email: email,
       phone: phone,
       bio:bio,
+      obj: obj,
       address: address,
+      district: district,
+      pincode : pincode,           
       tech : techSkills,
       soft: softSkills,
       lang: lang,
       hobbies : hobbies,
+      seacom: seacom, 
+      edu: edu,
+      clgStart: clgStart,
+      clgEnd : clgEnd
     });
 
     const url = 'http://localhost:8000/generate?' + queryParams.toString();
@@ -88,8 +95,15 @@ function App() {
     let name = e.target.name.value
     let phone = e.target.phone.value
     let address  = e.target.address.value
+    let district  = e.target.dict.value
+    let pincode  = e.target.pin.value
     let email = e.target.email.value
     let bio = e.target.bio.value
+    let obj = e.target.obj.value;
+    let seacom = e.target.seacom.checked;
+    let edu = e.target.edu.value;
+    let clgStart = e.target.clgStart.value;
+    let clgEnd = e.target.clgEnd.value;
     let techSkills = [
       e.target.c.checked, 
       e.target.cpp.checked,
@@ -125,7 +139,7 @@ function App() {
     // console.log(techSkills, softSkills, hobbies)
     
 
-    redirectToWebsite(name, phone, address, email, bio, techSkills, softSkills, lang, hobbies)
+    redirectToWebsite(name, phone, address, district, pincode, email, bio, obj, techSkills, softSkills, lang, hobbies, seacom, edu, clgStart, clgEnd)
 
   }
 
@@ -165,6 +179,19 @@ function App() {
             <br />
 
             <div>
+              <label htmlFor="dict">District</label>
+              <input type="text" name="dict" id="dict" className='border-blue-700 border-2' placeholder='Ex: Howrah' />
+            </div>
+            <div>
+            <label htmlFor="pin">Pin Code</label>
+            <input type="text" name="pin" id="pin" className='border-blue-700 border-2' />
+          </div>
+
+          <br />
+
+            <br />
+
+            <div>
               <label htmlFor="email">Email</label>
               <input type="email" name="email" id="email" className='border-blue-700 border-2' />
             </div>
@@ -179,7 +206,22 @@ function App() {
             <br />
             <div>
               <label htmlFor="obj">Career Objective</label>
-              <input type="text" name="obj" id="obj" className='border-blue-700 border-2' />
+              <input type="text" name="obj" id="obj" className='border-blue-700 border-2
+               w-[50vw]' placeholder='Leave it blank to auto generate' />
+            </div>
+            <br />
+            <div>
+              <h4>Education</h4> 
+              <label htmlFor="seacom">Seacom College ? </label>
+              <input type="checkbox" name="seacom" id="seacom" className='border-blue-700 border-2' /> <br />
+
+              <label htmlFor="edu">Other School or College Name:</label>
+              <input type="text" name="edu" id="edu" className='border-blue-700 border-2' placeholder='School or other college' /> 
+              <br />
+              <label htmlFor="clgStart">Starting (Year) :</label>
+              <input type="text" name="clgStart" id="clgStart" className='border-blue-700 border-2' placeholder='Ex: 2022' />
+              <label htmlFor="clgEnd">Ending Year:</label>
+              <input type="text" name="clgEnd" id="clgEnd" className='border-blue-700 border-2 ' placeholder='Leave blank if not completed yet' />
             </div>
             <br />
             <div>
