@@ -88,7 +88,7 @@ function App() {
       stream: stream,
     });
     console.log(queryParams.toString())
-    const url = 'http://localhost:8000/generate?' + queryParams.toString();
+    const url = 'https://resume-builder-backend-6uuy.onrender.com/generate?' + queryParams.toString();
 
     // Redirect the user
     window.location.href = url;
@@ -405,7 +405,7 @@ function App() {
             <br />
 
 
-            <input className='border-2 p-3' type="submit" value="Submit" onClick={() => {
+            <input className='border-2 p-3' type="submit" value="Download " onClick={() => {
               handleSubmit()
             }} />
           </form>
