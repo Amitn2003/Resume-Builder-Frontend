@@ -7,21 +7,23 @@ const Education = ({ eduNeed }) => {
         <>
             
             <div>
-                <label htmlFor="edu">Other School or College Name:</label>
-                <input type="text" name="edu" id="edu" className='border-blue-700 border-2' placeholder='School or other college' />
-                <br />
+  <label htmlFor="edu" class="block">Other School or College Name:</label>
+  <input type="text" name="edu" id="edu" class="border border-blue-700 rounded-md p-2 mb-2" placeholder="School or other college" />
+  <br />
 
-                <label htmlFor="course">Course/Degree name:</label>
-                <input type="text" name="course" id="course" className='border-blue-700 border-2 ' placeholder='H.S. / Madhyamik / Other' />
+  <label htmlFor="course" class="block">Course/Degree name:</label>
+  <input type="text" name="course" id="course" class="border border-blue-700 rounded-md p-2 mb-2" placeholder="H.S. / Madhyamik / Other" />
+<br />
+  <label htmlFor="clgStart" class="block">Starting (Year):</label>
+  <input type="number" name="clgStart" id="clgStart" class="border border-blue-700 rounded-md p-2 mb-2" placeholder="Ex: 2022" />
 
-                <label htmlFor="clgStart">Starting (Year) :</label>
-                <input type="number" name="clgStart" id="clgStart" className='border-blue-700 border-2' placeholder='Ex: 2022' />
-                <label htmlFor="clgEnd">Ending Year:</label>
-                <input type="number" name="clgEnd" id="clgEnd" className='border-blue-700 border-2 ' placeholder='Leave blank if not completed yet' />
-                <label htmlFor="board">Board/Univercity name:</label>
-                <input type="text" name="board" id="board" className='border-blue-700 border-2 ' placeholder='WBBSE / Univercity ' />
+  <label htmlFor="clgEnd" class="block">Ending Year:</label>
+  <input type="number" name="clgEnd" id="clgEnd" class="border border-blue-700 rounded-md p-2 mb-2" placeholder="Leave blank if not completed yet" />
 
-            </div>
+  <label htmlFor="board" class="block">Board/University name:</label>
+  <input type="text" name="board" id="board" class="border border-blue-700 rounded-md p-2 mb-2" placeholder="WBBSE / University" />
+</div>
+
         </>
     )
 }

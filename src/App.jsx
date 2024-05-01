@@ -58,7 +58,7 @@ function App() {
 
 
 
-  const redirectToWebsite = (name, phone, address, district, pincode, email, bio, obj, techSkills, softSkills, lang, hobbies, seacom, edu, course, clgStart, clgEnd, board, stream , edu2, course2, clgStart2, clgEnd2, board2) => {
+  const redirectToWebsite = (name, phone, address, district, pincode, email, bio, obj, techSkills, softSkills, lang, hobbies, seacom, edu, course, clgStart, clgEnd, board, stream, edu2, course2, clgStart2, clgEnd2, board2) => {
     // Construct the URL with query parameters
 
     const queryParams = new URLSearchParams({
@@ -79,8 +79,8 @@ function App() {
       edu2: edu2,
       course2: course2,
       clgStart2: clgStart2,
-      clgEnd2 : clgEnd2,
-      board2 : board2,
+      clgEnd2: clgEnd2,
+      board2: board2,
       course: course,
       clgStart: clgStart,
       clgEnd: clgEnd,
@@ -124,13 +124,13 @@ function App() {
     let clgEnd2 = "";
     let board2 = "";
     try {
-      edu2 = e.target.edu2.value ;
+      edu2 = e.target.edu2.value;
       course2 = e.target.course2.value;
       clgStart2 = e.target.clgStart2.value;
       clgEnd2 = e.target.clgEnd2.value;
       board2 = e.target.board2.value;
     }
-    catch{
+    catch {
       console.log(edu2, " is not there")
     }
     let stream = e.target.stream.value
@@ -182,7 +182,7 @@ function App() {
     // console.log(techSkills, softSkills, hobbies)
 
 
-    redirectToWebsite(name, phone, address, district, pincode, email, bio, obj, techSkills, softSkills, lang, hobbies, seacom, edu, course, clgStart, clgEnd, board, stream , edu2, course2, clgStart2, clgEnd2, board2)
+    redirectToWebsite(name, phone, address, district, pincode, email, bio, obj, techSkills, softSkills, lang, hobbies, seacom, edu, course, clgStart, clgEnd, board, stream, edu2, course2, clgStart2, clgEnd2, board2)
 
   }
 
@@ -199,230 +199,274 @@ function App() {
     <>
       <div>
         <div className="container">
-          <h2 className='text-3xl'>Welcome to Resume Builder!!</h2>
 
-          <form onSubmit={handleSubmit}>
 
-            <div>
-              <label htmlFor="name">Name : </label>
-              <input type="text" name="name" id="name" className='border-blue-700 border-2' />
-            </div>
-            <br />
-            <div>
-              <label htmlFor="phone">Phone Number : </label>
-              <input type="number" name="phone" id="phone" className='border-blue-700 border-2' />
-            </div>
 
-            <br />
-            <div>
-              <label htmlFor="address">Address</label>
-              <input type="text" name="address" id="address" className='border-blue-700 border-2' />
-            </div>
+          <br />
 
-            <br />
+        </div>
+      </div>
 
-            <div>
-              <label htmlFor="dict">District</label>
-              <input type="text" name="dict" id="dict" className='border-blue-700 border-2' placeholder='Ex: Howrah' />
-            </div>
-            <div>
-              <label htmlFor="pin">Pin Code</label>
-              <input type="number" name="pin" id="pin" className='border-blue-700 border-2' placeholder='765 432' />
-            </div>
+      <div className="container mx-auto p-6">
+        <h2 className="text-3xl mb-4">Welcome to Resume Builder!!</h2>
 
-            <br />
+        <form onSubmit={handleSubmit} className="space-y-4">
 
-            <br />
+          <div className="flex flex-col">
+            <label htmlFor="name">Name:</label>
+            <input type="text" name="name" id="name" className="border border-blue-700 rounded-md p-2" required />
+          </div>
 
-            <div>
-              <label htmlFor="email">Email</label>
-              <input type="email" name="email" id="email" className='border-blue-700 border-2' />
-            </div>
+          <div className="flex flex-col">
+            <label htmlFor="phone">Phone Number:</label>
+            <input type="number" name="phone" id="phone" className="border border-blue-700 rounded-md p-2" />
+          </div>
 
-            <br />
+          <div className="flex flex-col">
+            <label htmlFor="address">Address:</label>
+            <input type="text" name="address" id="address" className="border border-blue-700 rounded-md p-2" />
+          </div>
 
-            <div>
-              <label htmlFor="bio">Bio</label>
-              <input type="text" name="bio" id="bio" className='border-blue-700 border-2' />
-            </div>
+          <div className="flex flex-col">
+            <label htmlFor="dict">District:</label>
+            <input type="text" name="dict" id="dict" className="border border-blue-700 rounded-md p-2" placeholder="Ex: Howrah" />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="pin">Pin Code:</label>
+            <input type="number" name="pin" id="pin" className="border border-blue-700 rounded-md p-2" placeholder="765 432" />
+          </div>
 
-            <br />
-            <div>
-              <label htmlFor="obj">Career Objective</label>
-              <input type="text" name="obj" id="obj" className='border-blue-700 border-2
-               w-[50vw]' placeholder='Leave it blank to auto generate' />
-            </div>
-            <br />
-            <div>
-              <h4>Education</h4>
-              <label htmlFor="seacom">Seacom College (BCA)? </label>
-              <input type="checkbox" name="seacom" id="seacom" className='border-blue-700 border-2' /> <br />
+          <div className="flex flex-col">
+            <label htmlFor="email">Email:</label>
+            <input type="email" name="email" id="email" className="border border-blue-700 rounded-md p-2" />
+          </div>
 
-              <Education eduNeed={eduNeed} />
-              {moreEdu == false && <button onClick={(e) => {
+          <div className="flex flex-col">
+            <label htmlFor="bio">Bio:</label>
+            <input type="text" name="bio" id="bio" className="border border-blue-700 rounded-md p-2" placeholder='Leave it blank' />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="obj">Career Objective:</label>
+            <input type="text" name="obj" id="obj" className="border border-blue-700 rounded-md p-2 w-[50vw]" placeholder="Leave it blank to auto generate" />
+          </div>
+
+          <div className="flex flex-col">
+            <h4 className='text-xl'>Education</h4>
+            <label htmlFor="seacom">Seacom College (BCA)?</label>
+            <input type="checkbox" name="seacom" id="seacom" className="border border-blue-700 rounded-md p-2" /> <br />
+
+            <Education eduNeed={eduNeed} />
+            {moreEdu == false && (
+              <button onClick={(e) => {
                 e.preventDefault()
                 console.log(eduNeed)
                 setEduNeed(eduNeed + 1);
                 setMoreEdu(true)
-              }}>Add More Education</button>}
-              {moreEdu?<> <br/> <br/><Education2/></>:""}
-              <p>Your stream :</p>
-              <input type="radio" id="arts" name="stream" value="Arts" />
-              <label htmlFor="arts">Arts</label><br />
-              <input type="radio" id="commu" name="stream" value="Commerce" />
-              <label htmlFor="commu">Commerce</label><br />
-              <input type="radio" id="scie" name="stream" value="Science" />
-              <label htmlFor="scie">Science</label><br />
+              }} className="border border-blue-700 rounded-md p-2">Add More Education</button>
+            )}
+            {moreEdu && (
+              <>
+                <Education2 />
+                <br />
+                <br />
+              </>
+            )}
+            <p className='text-xl'>Your stream :</p>
+            <input type="radio" id="arts" name="stream" value="Arts" />
+            <label htmlFor="arts">Arts</label><br />
+            <input type="radio" id="commu" name="stream" value="Commerce" />
+            <label htmlFor="commu">Commerce</label><br />
+            <input type="radio" id="scie" name="stream" value="Science" />
+            <label htmlFor="scie">Science</label><br />
+          </div>
+
+          <div className="flex flex-col">
+          <p className='text-xl'>Technical Skills</p>
+            <div className="space-y-1">
+              <input type="checkbox" name="c" id="c" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="c">C</label> <br></br>
+
+              <input type="checkbox" name="cpp" id="cpp" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="cpp">C++</label> <br></br>
+
+              <input type="checkbox" name="java" id="java" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="java">Java</label> <br></br>
+
+              <input type="checkbox" name="python" id="python" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="python">Python</label> <br></br>
+
+              <input type="checkbox" name="sql" id="sql" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="sql">SQL</label> <br></br>
+
+              <input type="checkbox" name="html" id="html" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="html">HTML</label> <br></br>
+
+              <input type="checkbox" name="css" id="css" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="css">CSS</label> <br></br>
+
+              <input type="checkbox" name="office" id="office" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="office">MS Office</label> <br></br>
+
+              <input type="checkbox" name="js" id="js" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="js">JavaScript</label> <br></br>
+
+              <input type="checkbox" name="react" id="react" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="react">React</label> <br></br>
+
+              <input type="checkbox" name="node" id="node" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="node">Node JS</label> <br></br>
+
+              <input type="checkbox" name="mongo" id="mongo" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="mongo">Mongo DB</label> <br></br>
+
+              <input type="checkbox" name="cloud" id="cloud" className="border border-blue-700 rounded-md p-2 mr-2" />
+              <label htmlFor="cloud">Cloud Computing</label> <br></br>
 
 
 
-
+              {/* Add other technical skills checkboxes similarly */}
             </div>
-            <br />
-            <div>
-              Technical Skills <br />
-              <label htmlFor="c">C</label>
-              <input type="checkbox" name="c" id="c" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="cpp">C++</label>
-              <input type="checkbox" name="cpp" id="cpp" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="java">Java</label>
-              <input type="checkbox" name="java" id="java" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="python">Python</label>
-              <input type="checkbox" name="python" id="python" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="sql">SQL</label>
-              <input type="checkbox" name="sql" id="sql" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="html">HTML</label>
-              <input type="checkbox" name="html" id="html" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="css">CSS</label>
-              <input type="checkbox" name="css" id="css" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="office">MS Office</label>
-              <input type="checkbox" name="office" id="office" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="js">JavaScript</label>
-              <input type="checkbox" name="js" id="js" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="react">React JS</label>
-              <input type="checkbox" name="react" id="react" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="node">Node JS</label>
-              <input type="checkbox" name="node" id="node" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="mongo">MongoDB</label>
-              <input type="checkbox" name="mongo" id="mongo" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="cloud">Cloud Computing</label>
-              <input type="checkbox" name="cloud" id="cloud" className='border-blue-700 border-2' />
-
-            </div>
-            <br />
-            <div>
-              Soft Skills <br />
-              <label htmlFor="comm">Communication</label>
-              <input type="checkbox" name="comm" id="comm" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="problemSolving">Problem Solving</label>
-              <input type="checkbox" name="problemSolving" id="problemSolving" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="team">Team Work</label>
-              <input type="checkbox" name="team" id="team" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="adap">Adaptibility</label>
-              <input type="checkbox" name="adap" id="adap" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="creative">Creativity</label>
-              <input type="checkbox" name="creative" id="creative" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="eq">Emotional Intelligent</label>
-              <input type="checkbox" name="eq" id="eq" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="decision">Decision Making</label>
-              <input type="checkbox" name="decision" id="decision" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="timeMgmt">Time Management</label>
-              <input type="checkbox" name="timeMgmt" id="timeMgmt" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="leadership">Leadership Skill</label>
-              <input type="checkbox" name="leadership" id="leadership" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="conflictResolution">Conflict Resolution</label>
-              <input type="checkbox" name="conflictResolution" id="conflictResolution" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="criticalThinking">Critical Thinking</label>
-              <input type="checkbox" name="criticalThinking" id="criticalThinking" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="attentionDetails">Attention to Detail</label>
-              <input type="checkbox" name="attentionDetails" id="attentionDetails" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="resilience">Resilience</label>
-              <input type="checkbox" name="resilience" id="resilience" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="networking">Networking</label>
-              <input type="checkbox" name="networking" id="networking" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="interpersonal">Interpersonal Skills</label>
-              <input type="checkbox" name="interpersonal" id="interpersonal" className='border-blue-700 border-2' />
-            </div>
-            <br />
-            <div>
-              Languages <br />
-              <label htmlFor="beng">Bengali</label>
-              <input type="checkbox" name="beng" id="beng" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="hindi">Hindi</label>
-              <input type="checkbox" name="hindi" id="hindi" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="eng">English</label>
-              <input type="checkbox" name="eng" id="eng" className='border-blue-700 border-2' />
-            </div>
-            <br />
-            <div>
-              Hobbies & Interests  <br />
-              <label htmlFor="dance">Dance</label>
-              <input type="checkbox" name="dance" id="dance" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="movie">Watching Movies & WebSeries</label>
-              <input type="checkbox" name="movie" id="movie" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="travel">Travelling</label>
-              <input type="checkbox" name="travel" id="travel" className='border-blue-700 border-2' />
-              <br />
-              <label htmlFor="photography">Photography</label>
-              <input type="checkbox" name="photography" id="photography" className='border-blue-700 border-2' />
-              <br />
-
-
-
+            <div className="flex flex-col">
+              <label className="mt-2 mb-2 text-xl">Soft Skills:</label>
+              <div className="space-y-1">
+                <div className="flex items-center">
+                  <input type="checkbox" name="comm" id="comm" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="comm">Communication</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="problemSolving" id="problemSolving" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="problemSolving">Problem Solving</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="team" id="team" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="team">Team Work</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="adap" id="adap" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="adap">Adaptibility</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="creative" id="creative" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="creative">Creativity</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="eq" id="eq" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="eq">Emotional Intelligent</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="decision" id="decision" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="decision">Decision Making</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="timeMgmt" id="timeMgmt" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="timeMgmt">Time Management</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="leadership" id="leadership" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="leadership">Leadership Skill</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="conflictResolution" id="conflictResolution" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="conflictResolution">Conflict Resolution</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="criticalThinking" id="criticalThinking" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="criticalThinking">Critical Thinking</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="attentionDetails" id="attentionDetails" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="attentionDetails">Attention to Detail</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="resilience" id="resilience" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="resilience">Resilience</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="networking" id="networking" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="networking">Networking</label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="interpersonal" id="interpersonal" className="border border-blue-700 rounded-md p-2 mr-2" />
+                  <label htmlFor="interpersonal">Interpersonal Skills</label>
+                </div>
+              </div>
             </div>
 
+          </div>
+
+          <br />
+          <div>
+          <p className='text-xl'>Languages</p>
+            
+            <input type="checkbox" name="beng" id="beng" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="beng">Bengali</label>
             <br />
+            <input type="checkbox" name="hindi" id="hindi" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="hindi">Hindi</label>
+            <br />
+            <input type="checkbox" name="eng" id="eng" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="eng">English</label>
+          </div>
+
+
+          <br />
+          <div>
+            <p className='text-xl'> Hobbies & Interests  </p>
+            <input type="checkbox" name="dance" id="dance" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="dance">Dance</label>
+            <br />
+            <input type="checkbox" name="movie" id="movie" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="movie">Watching Movies & WebSeries</label>
+            <br />
+            <input type="checkbox" name="travel" id="travel" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="travel">Travelling</label>
+            <br />
+            <input type="checkbox" name="photography" id="photography" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="photography">Photography</label>
             <br />
 
 
-            <input className='border-2 p-3' type="submit" value="Download " onClick={() => {
+
+          </div>
+
+          {/* Repeat the above pattern for Soft Skills, Languages, and Hobbies & Interests */}
+
+          <div className="flex justify-center">
+            <input className="border border-blue-700 rounded-md p-3" type="submit" value="Download" onClick={() => {
               handleSubmit()
             }} />
-          </form>
+          </div>
 
-          <br />
-          <br />
-          <br />
-          {
-            data && (
-              <div>
-                <button onClick={handleDownload}>Download Data</button>
-                {/* Render fetched data */}
-              </div>
-            )
-          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </form>
+
+        <div className="mt-8">
+          {data && (
+            <div>
+              <button onClick={handleDownload} className="border border-blue-700 rounded-md p-2">Download Data</button>
+              {/* Render fetched data */}
+            </div>
+          )}
         </div>
+
       </div>
+
+
+
     </>
   )
 }
