@@ -178,6 +178,16 @@ function App() {
       e.target.movie.checked,
       e.target.travel.checked,
       e.target.photography.checked,
+      e.target.reading.checked,
+      e.target.cooking.checked,
+      e.target.gardening.checked,
+      e.target.exercising.checked,
+      e.target.painting.checked,
+      e.target.music.checked,
+      e.target.outdoorAct.checked,
+      e.target.diy.checked,
+      e.target.gaming.checked,
+      e.target.fashion.checked,
     ]
     // console.log(techSkills, softSkills, hobbies)
 
@@ -248,13 +258,16 @@ function App() {
 
           <div className="flex flex-col">
             <label htmlFor="obj">Career Objective:</label>
-            <input type="text" name="obj" id="obj" className="border border-blue-700 rounded-md p-2 w-[50vw]" placeholder="Leave it blank to auto generate" />
+            <input type="text" name="obj" id="obj" className="border border-blue-700 rounded-md p-2 " placeholder="Leave it blank to auto generate" />
           </div>
 
           <div className="flex flex-col">
             <h4 className='text-xl'>Education</h4>
+            <div>
             <label htmlFor="seacom">Seacom College (BCA)?</label>
-            <input type="checkbox" name="seacom" id="seacom" className="border border-blue-700 rounded-md p-2" /> <br />
+            <input type="checkbox" name="seacom" id="seacom" className="border border-blue-700 rounded-md p-2 ml-3" /> 
+            </div>
+            <br />
 
             <Education eduNeed={eduNeed} />
             {moreEdu == false && (
@@ -273,19 +286,25 @@ function App() {
               </>
             )}
             <p className='text-xl'>Your stream :</p>
-            <input type="radio" id="arts" name="stream" value="Arts" />
+            <div>
+            <input type="radio" id="arts" name="stream" value="Arts" className='border border-blue-700 rounded-md p-2 mr-2' />
             <label htmlFor="arts">Arts</label><br />
-            <input type="radio" id="commu" name="stream" value="Commerce" />
+            </div>
+            <div>
+            <input type="radio" id="commu" name="stream" value="Commerce" className='border border-blue-700 rounded-md p-2 mr-2' />
             <label htmlFor="commu">Commerce</label><br />
-            <input type="radio" id="scie" name="stream" value="Science" />
+            </div>
+            <div>
+            <input type="radio" id="scie" name="stream" value="Science" className='border border-blue-700 rounded-md p-2 mr-2' />
             <label htmlFor="scie">Science</label><br />
+            </div>
           </div>
 
           <div className="flex flex-col">
           <p className='text-xl'>Technical Skills</p>
             <div className="space-y-1">
               <input type="checkbox" name="c" id="c" className="border border-blue-700 rounded-md p-2 mr-2" />
-              <label htmlFor="c">C</label> <br></br>
+              <label htmlFor="c" className=''>C</label> <br></br>
 
               <input type="checkbox" name="cpp" id="cpp" className="border border-blue-700 rounded-md p-2 mr-2" />
               <label htmlFor="cpp">C++</label> <br></br>
@@ -424,6 +443,36 @@ function App() {
             <br />
             <input type="checkbox" name="photography" id="photography" className='border-blue-700 border-2 p-2 mr-2' />
             <label htmlFor="photography">Photography</label>
+            <br />
+            <input type="checkbox" name="reading" id="reading" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="reading">Reading</label>
+            <br />
+            <input type="checkbox" name="cooking" id="cooking" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="cooking">Cooking</label>
+            <br />
+            <input type="checkbox" name="gardening" id="gardening" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="gardening">Gardening</label>
+            <br />
+            <input type="checkbox" name="exercising" id="exercising" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="exercising">Exercising</label>
+            <br />
+            <input type="checkbox" name="painting" id="painting" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="painting">Painting</label>
+            <br />
+            <input type="checkbox" name="music" id="music" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="music">Playing Musical Instruments</label>
+            <br />
+            <input type="checkbox" name="outdoorAct" id="outdoorAct" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="outdoorAct">Hiking/Outdoor Activities</label>
+            <br />
+            <input type="checkbox" name="diy" id="diy" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="diy">DIY Crafts</label>
+            <br />
+            <input type="checkbox" name="gaming" id="gaming" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="gaming">Gaming</label>
+            <br />
+            <input type="checkbox" name="fashion" id="fashion" className='border-blue-700 border-2 p-2 mr-2' />
+            <label htmlFor="fashion">Fashion</label>
             <br />
 
 
